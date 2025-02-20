@@ -58,11 +58,11 @@ var app = builder.Build();
 // הפעלת CORS
 app.UseCors("AllowAllOrigins");
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.UseHttpsRedirection();
 
@@ -139,6 +139,6 @@ app.MapDelete("/items/{id}", async (int id, ILogger<Program> logger) =>
         return Results.NoContent();
     }, logger, $"מחיקת פריט עם מזהה {id}"));
 
-app.MapGet("/", () => Results.Redirect("/swagger"));
-
+// app.MapGet("/", () => Results.Redirect("/swagger"));
+app.MapGet("/",()=>"Auther Server is running");
 app.Run();
