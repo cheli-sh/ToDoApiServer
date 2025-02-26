@@ -50,8 +50,6 @@
 // }
 
 
-
-
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -110,14 +108,14 @@ namespace TodoApi
                 entity.HasKey(e => e.Id).HasName("PRIMARY");
 
                 entity
-                    .ToTable("items")
+                    .ToTable("Items")
                     .UseCollation("utf8mb4_unicode_ci");
 
-                entity.Property(e => e.Id).HasColumnName("id");
-                entity.Property(e => e.IsComplite).HasColumnName("isComplite");
+                entity.Property(e => e.Id).HasColumnName("Id"); // שינוי שם העמודה ל-"Id"
+                entity.Property(e => e.IsComplite).HasColumnName("IsComplite"); // שינוי שם העמודה ל-"IsComplite"
                 entity.Property(e => e.Name)
                     .HasMaxLength(100)
-                    .HasColumnName("name");
+                    .HasColumnName("Name"); // שינוי שם העמודה ל-"Name"
             });
 
             OnModelCreatingPartial(modelBuilder);
